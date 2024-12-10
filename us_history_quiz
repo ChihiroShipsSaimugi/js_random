@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quick Trivia</title>
+    </head>
+
+    <body>
+        <script>
+            var correct = 0;
+            var questionnumber = 0;
+            var question1 = prompt("What year was the United States founded?").toLowerCase();
+            if(question1 == "1776"){
+                alert("Correct!");
+                correct += 1;
+                questionnumber += 1;
+            }   else {
+                alert("False!");
+                questionnumber += 1;
+            }
+            console.log(correct)
+            var question2 = prompt("What year was Woodrow Wilson elected?").toLowerCase();
+            if(question2 == "1912"){
+                alert("Correct!");
+                correct += 1;
+                questionnumber += 1;
+            }   else {
+                alert("False!");
+                questionnumber += 1;
+            }
+            console.log(correct)
+            var question3 = prompt("What year was Franklin Delano Roosevelt elected?").toLowerCase();
+            if(question3 == "1932"){
+                alert("Correct!");
+                correct += 1;
+                questionnumber += 1;
+                
+            }   else {
+                alert("False!");
+                questionnumber += 1;
+            }
+            console.log(correct)
+            var question4 = prompt("What year was Abraham Lincoln elected?").toLowerCase();
+            if(question4 == "1860"){
+                alert("Correct!");
+                correct += 1;
+                questionnumber += 1;
+                
+            }   else {
+                alert("False!");
+                questionnumber += 1;
+            }
+            console.log(correct)
+            alert("You got " + correct + " out of " + questionnumber + " correct!")
+        </script>
+    </body>
+</html>
