@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create a Flag</title>
+		<style>
+		    html, body{
+		        display: flex;
+		        flex-direction: column;
+		        align-items: stretch;
+		        height: 100%;
+		    }
+		    div{
+		        flex: 1;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<div id = "color-one">
+		    
+		</div>
+		<div id ="color-two">
+		    
+		</div>
+		<div id = "color-three">
+		</div>
+		<script>
+		    //Add your code here!
+		    var color1 = prompt("What do you want the first color of your flag to be?")
+		    var color2 = prompt("What do you want the second color of your flag to be?")
+		    var color3 = prompt("What do you want the third color of your flag to be?")
+		    document.getElementById("color-one").setAttribute("style", "background-color: " + color1)
+		    document.getElementById("color-two").setAttribute("style", "background-color: " + color2)
+		    document.getElementById("color-three").setAttribute("style", "background-color: " + color3)
+		</script>
+	</body>
+</html>
