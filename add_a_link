@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<p id = "web-page">
+		    Check out my website
+		</p>
+		<script>
+		    //Add your code here:
+		    var tag = document.createElement("a");
+		    tag.innerHTML = "here!";
+		    tag.setAttribute("href", "https://www.codehs.com/sandbox");
+		    document.getElementById("web-page").appendChild(tag);
+		</script>
+	</body>
+</html>
