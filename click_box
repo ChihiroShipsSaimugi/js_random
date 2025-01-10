@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html,body{
+                display: flex;
+                align-items:center;
+                justify-content: center;
+                height:100%;
+            }
+            div{
+                border: solid 1px black;
+                height:50px;
+                width:50px;
+                margin: 5px;
+            }
+        </style>
+    </head>
+	<body>
+		<div></div>
+		<div></div>
+
+		<script>
+		    function changeColor(){
+		        var color = prompt("What color do you want?");
+		        this.style.backgroundColor = color;
+		    }
+		    var divList = document.getElementsByTagName("div");
+		    for (var i = 0; i < divList.length; i++){
+		        divList[i].addEventListener("click", changeColor);
+		    }
+		</script>
+	</body>
+</html>
