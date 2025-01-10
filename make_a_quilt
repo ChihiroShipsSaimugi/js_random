@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		    html,body{
+		        display:flex;
+		        flex-wrap: wrap;
+		        height:100%;
+		        width:100%;
+		        padding-left:2%;
+		        padding-right:2%;
+		    }
+		    div{
+		        height:10%;
+		        width:9%;
+		        border: 1px solid black;
+		    }
+		</style>
+	</head>
+	<body>
+		<script>
+    		function paint(){
+    		    var color1 = Math.floor(Math.random() * 256);
+    		    var color2 = Math.floor(Math.random() * 256);
+    		    var color3 = Math.floor(Math.random() * 256);
+    		    console.log(color1);
+    		    this.style.backgroundColor = "rgb(" + color1 + ", " + color2 + ", " + color3 + ")";
+    	    }
+    	    
+        	for (var i = 0; i < 100; i++){
+                div = document.createElement("div");
+                div.addEventListener("mouseover", paint);
+                document.body.appendChild(div);
+        	}
+		</script>
+	</body>
+</html>
