@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<style>
+    	    #textbox{
+                    margin: 10px;
+                    border: 1px solid black;
+                    height: 200px;
+                }
+            #keyboard{
+                    text-align: center;
+                }
+        </style>
+	</head>
+    <body>
+        <div id = 'keyboard'>
+        </div>
+        
+        <div id = 'textbox'>
+        </div>
+    </body>
+    
+    <script>
+        var alpha = ['q','w','e','r','t','y','u','i','o','p','a','s',
+            'd','f','g','h','j','k','l',';','\'',
+            'z','x','c','v','b','n','m', ',','.'];
+            
+        function makeButton(String){
+            var button = document.createElement("button");
+            button.innerHTML = String;
+            button.addEventListener("click", makeText);
+            document.getElementById("keyboard").appendChild(button);
+        }
+        function makeText(){
+            var text = document.createElement("p");
+            text.innerHTML = this.innerHTML;
+            text.style.display = "inline";
+            if (this.innerHTML == "Space"){
+                var space = document.createElement("p");
+                space.innerHTML = "\u00A0";
+                space.style.display = "inline";
+                document.getElementById("textbox").appendChild(space);
+            } else if (this.innerHTML == "Delete"){
+                var textbox = document.getElementById("textbox");
+                if (textbox.lastChild) {
+                    textbox.removeChild(textbox.lastChild);
+                }
+            } else if (this.innerHTML == "Enter"){ 
+                var newline = document.createElement("br");
+                document.getElementById("textbox").appendChild(newline);
+            } else {
+                document.getElementById("textbox").appendChild(text);
+            }
+        }
+        function makeKeyboard(){
+            for (var i = 0; i < alpha.length; i++){
+                var divide = 5;
+                makeButton(alpha[i]);
+                if ((i + 1) % 10 === 0){
+                    var br = document.createElement("br");
+                    document.getElementById("keyboard").appendChild(br);
+                    divide += 5;
+                }
+            }
+            var spacebreak = document.createElement("br");
+            document.getElementById("keyboard").appendChild(spacebreak);
+            makeButton("Space");
+            makeButton("Delete");
+            makeButton("Enter");
+        }
+        makeKeyboard();
+    </script>
+</html>
