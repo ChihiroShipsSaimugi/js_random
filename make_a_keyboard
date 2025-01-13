@@ -25,12 +25,28 @@
             'd','f','g','h','j','k','l',';','\'',
             'z','x','c','v','b','n','m', ',','.'];
             
+        var underline = document.createElement("p");
+        underline.innerHTML = "_";
+        underline.style.display = "inline";
+        document.getElementById("textbox").appendChild(underline);
+        
+        const cursor = underline;
+        
+        setInterval(() => {
+          if (cursor.style.visibility === 'hidden') {
+            cursor.style.visibility = 'visible';
+          } else {
+            cursor.style.visibility = 'hidden';
+          }
+        }, 1000);
+    
         function makeButton(String){
             var button = document.createElement("button");
             button.innerHTML = String;
             button.addEventListener("click", makeText);
             document.getElementById("keyboard").appendChild(button);
         }
+        
         function makeText(){
             var text = document.createElement("p");
             text.innerHTML = this.innerHTML;
@@ -42,6 +58,7 @@
                 document.getElementById("textbox").appendChild(space);
             } else if (this.innerHTML == "Delete"){
                 var textbox = document.getElementById("textbox");
+                textbox.removeChild(textbox.lastChild);
                 if (textbox.lastChild) {
                     textbox.removeChild(textbox.lastChild);
                 }
@@ -51,6 +68,7 @@
             } else {
                 document.getElementById("textbox").appendChild(text);
             }
+            document.getElementById("textbox").appendChild(underline);
         }
         function makeKeyboard(){
             for (var i = 0; i < alpha.length; i++){
