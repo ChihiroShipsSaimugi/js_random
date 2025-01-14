@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	    <h3>Click on the webpage before typing any keys!</h3>
+    	<script>
+    	    document.body.addEventListener("keydown", keyAlert);
+    	    
+    	    function keyAlert(event){
+    	        alert("You have pressed: " + event.code + "!");
+    	    }
+    	</script>
+	</body>
+</html>
