@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		    #number{
+    		    height: 75px;
+    		    width: 75px;
+    		    font-size: 45px;
+    		    font-weight: bold;
+    		    margin: 10px;
+    		    margin-left: 70px;
+    		    text-align:center;
+                line-height:75px;
+            }
+		</style>
+	</head>
+
+	<body>
+		<h3>Lotto Number Generator</h3>
+		<button id = generate>Click here to start!</button>
+		<button id = stop>Click here to stop!</button>
+		<div id = number></div>
+		
+		<script>
+		    var box = document.getElementById("number");
+		    var interval
+		    
+		    document.getElementById("generate").addEventListener("click", generate);
+		    document.getElementById("stop").addEventListener("click", stop);
+		    
+		    function generate(){
+		        box.style.borderStyle = "solid";
+		        box.style.textAlign = "center";
+		        interval = setInterval(number, "20");
+		    }
+		    function number(){
+		        box.innerHTML = Math.floor((Math.random() * 10))
+		        console.log(box.innerHTML)
+		    }
+		    function stop(){
+		        clearInterval(interval);
+		    }
+		</script>
+	</body>
+</html>
