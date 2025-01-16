@@ -23,7 +23,7 @@
 		
 		<script>
 		    var box = document.getElementById("number");
-		    var interval
+		    var interval;
 		    
 		    document.getElementById("generate").addEventListener("click", generate);
 		    document.getElementById("stop").addEventListener("click", stop);
@@ -34,8 +34,8 @@
 		        interval = setInterval(number, "20");
 		    }
 		    function number(){
-		        box.innerHTML = Math.floor((Math.random() * 10))
-		        console.log(box.innerHTML)
+		        box.innerHTML = Math.floor((Math.random() * 10));
+		        console.log(box.innerHTML);
 		    }
 		    function stop(){
 		        clearInterval(interval);
