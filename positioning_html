@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practice with Positions</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id = "circle"></div>
+        <div id = "square"></div>
+        <div id = "triangle"></div>
+    </body>
+    
+    <script>
+        var circle = document.getElementById("circle");
+        var square = document.getElementById("square");
+        var triangle = document.getElementById("triangle");
+        
+        var windowheight = window.innerHeight;
+        var windowwidth = window.innerWidth;
+        console.log(windowheight);
+        console.log(windowwidth);
+        
+        function move(object, moveheight, movewidth){
+            var HEIGHT_START = 0;
+            var WIDTH_START = 0;
+            var HEIGHT_END = windowheight - moveheight;
+            var WIDTH_END = windowwidth - movewidth;
+           
+            object.style.position = "relative";
+            object.style.top = HEIGHT_START + "px";
+            object.style.left = WIDTH_START + "px";
+            
+            var movedowntimer = setInterval(movedown, 10)
+            var moverighttimer = setInterval(moveright, 10)
+            
+            function movedown(){
+                HEIGHT_START += 1;
+                object.style.top = HEIGHT_START + "px";
+                if(HEIGHT_START >= HEIGHT_END){
+                    clearInterval(movedowntimer);
+                }
+            }
+            
+            function moveright(){
+                WIDTH_START += 1;
+                object.style.left = WIDTH_START + "px";
+                if(WIDTH_START >= WIDTH_END){
+                    clearInterval(moverighttimer);
+                }
+            }
+        }
+        
+        move(circle, 110, 300);
+        move(square, 110, 300);
+        move(triangle, 262, 300);
+    </script>
+</html>
