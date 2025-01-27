@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		html,body
+		{
+		 height:100%;  
+		 margin:0px;
+		}
+		    #nav-bar
+		    {
+		        list-style-type: none;
+                margin: 0;
+                padding: 0;
+                width: 100px;
+                height:100%;
+                background-color: lightblue;
+		    }
+		    li a{
+		        text-align:center;
+		        display:block;
+		        padding-top:5px;
+		        padding-bottom:5px;
+		    }
+		    li a:hover
+		    {
+		        background-color:gray;
+		    }
+		    #hide-button a:hover
+		    {
+		        cursor:pointer;
+		        background-color:orange;
+		    }
+		</style>
+	</head>
+
+	<body>
+	    <ul id = nav-bar>
+	        <li><a>Home</a></li>
+	        <li><a>Contact Us</a></li>
+	        <li><a>About</a></li>
+	        <li><a>News</a></li>
+	        <li id = hide-button><a>Hide Me!</a></li>
+	    </ul>
+	    
+	    <script>
+	        var button = document.getElementById("hide-button");
+	        var navbar = document.getElementById("nav-bar");
+	        
+	        navbar.style.position = "relative";
+	        
+	        function hide(){
+	            var timer = setInterval(move, 1);
+	            var VALUE = 0;
+	            function move(){
+	                VALUE += 1;
+	                navbar.style.right = VALUE + "px"; 
+	                if (START >= 100){
+	                    clearInterval(timer);
+	                }
+	            }
+	        }
+	        
+	        button.addEventListener("click", hide);
+	    </script>
+	</body>
+</html>
