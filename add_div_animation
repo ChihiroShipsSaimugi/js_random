@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		
+		    #container
+		    {
+		     display:flex;   
+		    }
+		    div div
+		    {
+		     height: 50px;
+		     width:50px;
+		    }
+		    #div-creator
+		    {
+		        margin:6px;
+		    }
+		</style>
+	</head>
+
+	<body>
+	    <button id = div-creator>
+	        Add a Div!
+	    </button>
+	    <div id = container>
+	        
+	    </div>
+	    <script>
+	        var timer;
+	        var DIV_WIDTH = 50;
+	        var numSquares = 0;
+	        
+	        var button = document.getElementById("div-creator");
+
+	        button.addEventListener("click", creatediv);
+	        
+	        function creatediv(){
+	            var color = prompt("Pick a color!");
+	            if (!color) return;
+	            var container = document.getElementById("container");
+	            var div = document.createElement("div");
+	            
+                div.style.backgroundColor = color;
+                div.style.position = "absolute";
+	            container.appendChild(div);
+	            numSquares += 1;
+	            VALUE = 0;
+	            
+	            timer = setInterval(move, 1)
+	            
+	            function move(){
+	                if (numSquares <= VALUE){
+	                    clearInterval(timer);
+	                }
+	                div.style.position = "relative";
+	                div.style.transform = `translate(${(DIV_WIDTH * numSquares)}px", 0px)`;
+	                VALUE += 1;
+	            }
+	        }
+	    </script>
+	</body>
+</html>
