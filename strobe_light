@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+		<style>
+		    html, body{
+		        height:100%;   
+		    }
+		    #container{
+		        display:flex;
+		        justify-content: center;
+		        align-items:center;
+		        height:90%;
+		        
+		    }
+		    div div{
+		        border:1px solid black;
+		        height: 50px;
+		        width: 15%;
+		    }
+		    
+		</style>
+	</head>
+
+	<body>
+	    <div id = container>
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	        <div></div>
+	    </div>
+	    <script>
+	        var BLACK = "rgb(0, 0, 0)";
+	        var WHITE = "rgb(255, 255, 255)";
+	        
+	        $("div div:nth-child(odd)").css("background-color", WHITE)
+	        $("div div:nth-child(even)").css("background-color", BLACK)
+
+	        function strobe(){
+    	        $("div div").each(function(){
+    	            if ($(this).css("background-color") == WHITE){
+    	                $(this).css("background-color", BLACK)
+    	            }
+    	            else {
+    	                $(this).css("background-color", WHITE);
+    	            }
+    	        });
+	        }
+
+	        setInterval(strobe, 10);
+	    </script>
+	</body>
+</html>
