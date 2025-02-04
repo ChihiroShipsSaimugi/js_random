@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+        <style>
+        html,body
+        {
+         height:95%;   
+        }
+            #ball{
+                border-radius:100px;
+                height:50px;
+                width:50px;
+                background-color:red;
+            }
+            #container
+            {
+                width:100%;
+                height:100%;
+                display:flex;
+                align-items:flex-end;
+                justify-content:center;
+            }
+        </style>
+    </head>
+	
+	<body>
+    	<div id = container>
+            <div id = ball></div>
+        </div>
+        
+        <script>
+            $("#ball").click(function(){
+                $(this).css("position", "relative");
+                $(this).animate({bottom: "200px"}, "fast").animate({top: "0px"}, "fast");
+            })
+        </script>
+	</body>
+</html>
