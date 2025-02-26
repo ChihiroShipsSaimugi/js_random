@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+	</head>
+
+	<body>
+		<h2>How many times have you visited this site?</h2>
+		<p id = visits></p>
+		
+		<script>
+		    if (localStorage.visits){
+		        localStorage.visits = parseInt(localStorage.visits) + 1;
+		        $("#visits").html("You have visited " + localStorage.visits + " times!");
+		    } else {
+		        localStorage.visits = 1;
+		        $("#visits").html("You have visited " + localStorage.visits + " times!");
+		    }
+		</script>
+	</body>
+</html>
