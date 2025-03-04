@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+
+	</head>
+
+	<body>
+	    <button id = add>Add New Contact</button>
+	    
+	    <script>
+	        $("#add").click(addContact)
+            
+            if (localStorage.phonebook){
+                localStorage.phonebook = JSON.parse(localStorage.phonebook);
+            } else{
+                localStorage.phonebook = JSON.stringify("{}");
+            }
+	        function addContact()
+	        {
+	           var fname = prompt("What is your first name?")
+	           var lname = prompt("What is your last name?")
+	           var number = prompt("What is your phone number?")
+	           
+	           var phonebook = {
+	               firstname: fname,
+	               lastname: lname,
+	               phonenumber: number
+	           }
+	           localStorage.phonebook = JSON.stringify(phonebook);
+	        }
+	        
+	        
+	       
+
+	    </script>
+	</body>
+</html>
