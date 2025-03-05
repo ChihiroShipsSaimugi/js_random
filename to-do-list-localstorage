@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>To Do List</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+		</script>
+	</head>
+
+	<body>
+		<div id = "to-do">
+		    <h4>To Do List!</h4>
+		</div>
+		<hr>
+		<div>
+		    <form id = "task-form" onsubmit = "listItem()">
+		        <input type = "text" name = "item" placeholder = "Item">
+		        <br><br>
+		        <input type = "submit">
+		    </form>
+		</div>
+		<br>
+		<div id= "to-do-list">
+		</div>
+	</body>
+	<script>
+    	if (localStorage.todoList){
+    	   var todoList = JSON.parse(localStorage.todoList);
+    	   for (var i = 0; i < todoList.length; i++){
+    	       $("#to-do-list").append("<li>" + todoList[i].item + "</li>");
+    	   }
+        } else {
+    	    var todoList = []
+    	}
+	    function listItem(){
+	        event.preventDefault();
+	        var list = $("#task-form").serializeArray();
+	        $("#to-do-list").append("<li>" + list[0].value + "</li>");
+	    
+	        var item = {
+		        item: list[0].value,
+		    }
+		    
+		    todoList.push(item)
+		    var finallist = JSON.stringify(todoList)
+		    localStorage.todoList = finallist
+	    }
+	    $("#to-do-list").on("click", "li", deleteItem)
+	    function deleteItem(){
+	        $(this).css("text-decoration", "line-through" )
+	        var index = $(this).data("index");
+            todoList.splice(index, 1);
+            localStorage.todoList = JSON.stringify(todoList);
+	    }
+	</script>
+</html>
